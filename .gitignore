@@ -1,0 +1,39 @@
+# Environment variables (use .env for local config)
+.env
+.env.local
+.env.*.local
+
+# Docker
+.docker
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Database backups
+*.sql.bak
+*.sql.backup
+postgresql_backup/
+postgres_data/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
