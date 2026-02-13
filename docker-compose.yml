@@ -31,7 +31,7 @@ services:
     environment:
       ASPNETCORE_ENVIRONMENT: Production
       ASPNETCORE_URLS: http://+:5232
-      ConnectionStrings__cnUrbanBook: "Host=postgres;Port=5432;Database=UrbanBook;Username=postgres;Password=postgres_password_123;Trust Server Certificate=true;"
+      ConnectionStrings__cnUrbanBook: "Host=postgres;Port=5433;Database=UrbanBook;Username=postgres;Password=postgres_password_123;Trust Server Certificate=true;"
     ports:
       - "5232:5232"
     expose:
