@@ -4,9 +4,9 @@ services:
     image: postgres:17-alpine
     container_name: urbanbook-postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres_password_123
-      POSTGRES_DB: UrbanBook
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
     ports:
       - "5433:5432"
     volumes:
@@ -29,9 +29,9 @@ services:
       dockerfile: Dockerfile
     container_name: urbanbook-api
     environment:
-      ASPNETCORE_ENVIRONMENT: Production
-      ASPNETCORE_URLS: http://+:5232
-      ConnectionStrings__cnUrbanBook: "Host=postgres;Port=5432;Database=UrbanBook;Username=postgres;Password=postgres_password_123;Trust Server Certificate=true;"
+      ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
+      ASPNETCORE_URLS: ${ASPNETCORE_URLS}
+      ConnectionStrings__cnUrbanBook: ${CONNECTIONSTRINGS__CNURBANBOOK}
     ports:
       - "5232:5232"
     expose:
