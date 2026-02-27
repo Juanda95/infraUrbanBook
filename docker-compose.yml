@@ -22,9 +22,10 @@ services:
       - apps-general-network
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres -d UrbanBook"]
-      interval: 10s
+      interval: 5s
       timeout: 5s
-      retries: 5
+      retries: 10
+      start_period: 15s
     restart: unless-stopped
   
 
@@ -38,10 +39,14 @@ services:
       ASPNETCORE_ENVIRONMENT: ${ASPNETCORE_ENVIRONMENT}
       ASPNETCORE_URLS: ${ASPNETCORE_URLS}
       ConnectionStrings__cnUrbanBook: ${CONNECTIONSTRINGS__CNURBANBOOK}
+      FileStorage__BasePath: /app/storage
+      FileStorage__MaxFileSizeMB: ${FILE_STORAGE_MAX_SIZE_MB}
     ports:
       - "5232:5232"
     expose:
       - "5232"
+    volumes:
+      - ${FILE_STORAGE_HOST_PATH}:/app/storage
     depends_on:
       postgres:
         condition: service_healthy
