@@ -41,6 +41,9 @@ services:
       ConnectionStrings__cnUrbanBook: ${CONNECTIONSTRINGS__CNURBANBOOK}
       FileStorage__BasePath: /app/storage
       FileStorage__MaxFileSizeMB: ${FILE_STORAGE_MAX_SIZE_MB}
+      Vapid__Subject: ${VAPID__SUBJECT}
+      Vapid__PublicKey: ${VAPID__PUBLICKEY}
+      Vapid__PrivateKey: ${VAPID__PRIVATEKEY}
     ports:
       - "5232:5232"
     expose:
